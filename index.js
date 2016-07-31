@@ -1,6 +1,6 @@
 var fs = require('fs');
 var ltrim = require('underscore.string').ltrim;
-
+var pkg = require(require('path').join(require('process').cwd(), 'package.json'));
 
 // Returns false if the directory doesn't exist
 module.exports = function requireAll(options) {
@@ -42,6 +42,9 @@ module.exports = function requireAll(options) {
 
   // Iterate through files in the current directory
   files.forEach(function(file) {
+
+    if(includers.indexOf(file) !== -1) return;
+
     var filepath = options.dirname + '/' + file;
 
     // For directories, continue to recursively include modules
