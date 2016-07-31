@@ -43,7 +43,7 @@ module.exports = function requireAll(options) {
   // Iterate through files in the current directory
   files.forEach(function(file) {
 
-    if(includers.indexOf(file) !== -1) return;
+    if(pkg.includers.indexOf(file) !== -1) return;
 
     var filepath = options.dirname + '/' + file;
 
